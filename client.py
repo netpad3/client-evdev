@@ -23,7 +23,11 @@ def mapthing(value, info):
 
 caps = dev.capabilities()
 keys = caps[ec.EV_KEY]
-axes = caps[ec.EV_ABS]
+axes = ()
+try:
+    axes = caps[ec.EV_ABS]
+except:
+    pass
 axesout = []
 axismap = {}
 for a in axes:
